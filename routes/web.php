@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
@@ -99,6 +100,7 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     Route::delete('products/{product}', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
 });
 
+Route::get('/admin/purchases', [AdminController::class, 'showPurchases'])->name('admin.purchases');
 
 
 require __DIR__.'/auth.php';

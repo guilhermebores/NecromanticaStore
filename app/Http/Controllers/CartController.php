@@ -6,7 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Purchase;
 
 class CartController extends Controller
 {
@@ -28,7 +28,6 @@ class CartController extends Controller
             ->where('user_id', Auth::id())
             ->get();
 
-        // Soma o total (preço * quantidade)
         $total = $cartItems->reduce(function ($carry, $item) {
             return $carry + ($item->product->price * $item->quantity);
         }, 0);
@@ -77,5 +76,23 @@ class CartController extends Controller
         Cart::where('user_id', Auth::id())->delete();
 
         return redirect()->route('cart.index')->with('successo', 'Carrinho limpo');
+    }
+
+    public function finalizarCompra()
+    {
+        $cart = session()->get('cart', []);
+        $user = auth()->user();
+
+        foreach ($cart as $productId => $item) {
+            Purchase::create([
+                'user_id' => $user->id,
+                'product_id' => $productId,
+                'quantity' => $item['quantity'] ?? 1,
+            ]);
+        }
+
+        session()->forget('cart');
+
+        return redirect()->route('home')->with('success', 'Compra finalizada com sucesso!');
     }
 }

@@ -19,32 +19,41 @@
                     <div class="dropdown">
                         <button class="btn btn-dark dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             @auth
-                                {{ Auth::user()->name }}
+                            {{ Auth::user()->name }}
                             @endauth
                             @guest
-                                Convidado
+                            Convidado
                             @endguest
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            @auth
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Painel</a>
-                                </li>
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">Sair</button>
-                                    </form>
-                                </li>
-                            @endauth
+                           @authadmin
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Painel</a>
+                            </li>
+                            <li><a href="{{ route('admin.purchases') }}">Compras</a></li>
 
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Sair</button>
+                                </form>
+                            </li>
+                            @endauthadmin
+                            @auth
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Sair</button>
+                                </form>
+                            </li>
+                            @endauth
                             @guest
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('admin.login') }}">Admin Login</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                                </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.login') }}">Admin Login</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                            </li>
                             @endguest
                         </ul>
                     </div>

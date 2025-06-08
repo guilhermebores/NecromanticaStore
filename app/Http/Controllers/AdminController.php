@@ -6,12 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Purchase;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        // Aqui você pode adicionar a lógica para exibir o painel de administração
         return view('admin.index');
     }
 
@@ -53,5 +53,10 @@ public function create()
     return view('admin.auth.create');
 }
 
+public function showPurchases()
+{
+    $purchases = Purchase::with(['user', 'product'])->orderBy('created_at', 'desc')->get();
+    return view('admin.purchases.index', compact('purchases'));
+}
 
 }
