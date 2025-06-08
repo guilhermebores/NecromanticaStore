@@ -16,7 +16,6 @@
 
     <div class="card bg-dark text-white shadow-sm">
         <div class="card-body">
-            <h2 class="h5 mb-4">Criar Conta de Usuário</h2>
 
             <form method="POST" action="{{ route('user.store') }}">
                 @csrf

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container text-white">
-    <h2 class="mb-4">Recent Purchases</h2>
+    <h2 class="mb-4">Compras Recentes</h2>
     <table class="table table-dark table-bordered">
         <thead>
             <tr>
