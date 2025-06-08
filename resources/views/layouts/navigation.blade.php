@@ -26,11 +26,15 @@
                             @endguest
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                           @authadmin
+                            @auth
+                            @if(Auth::user()->is_admin)
                             <li>
                                 <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Painel</a>
                             </li>
-                            <li><a href="{{ route('admin.purchases') }}">Compras</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.purchases') }}">Compras</a>
+                            </li>
+                            @endif
 
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
@@ -38,23 +42,14 @@
                                     <button type="submit" class="dropdown-item">Sair</button>
                                 </form>
                             </li>
-                            @endauthadmin
-                            @auth
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item">Sair</button>
-                                </form>
-                            </li>
-                            @endauth
-                            @guest
+                            @else
                             <li>
                                 <a class="dropdown-item" href="{{ route('admin.login') }}">Admin Login</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                             </li>
-                            @endguest
+                            @endauth
                         </ul>
                     </div>
                 </div>
