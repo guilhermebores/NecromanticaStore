@@ -1,0 +1,188 @@
+body {
+  background-color: #000000;
+  color: #D3D3D3;
+  font-family: 'Cinzel', serif;
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3, p {
+  margin: 0 0 1em 0;
+}
+
+h2, h3 {
+  color: #8B0000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+header {
+  background: linear-gradient(to bottom, #000000, #1c1c1c);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header-block .text {
+  flex: 1;
+  padding: 20px;
+}
+
+.header-block p {
+  font-size: 1.1em;
+  color: #A9A9A9;
+  line-height: 1.6em;
+}
+
+.img-primera-imagem {
+  flex: 1;
+  text-align: center;
+}
+
+.img-primera-imagem img {
+  max-width: 300px;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+.title-wrpper-about p,
+.title-wrapper-contact p {
+  color: #B22222;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.title-wrpper-about h3,
+.title-wrapper-contact h3 {
+  font-size: 2em;
+  color: #FFFFFF;
+  border-bottom: 2px solid #8B0000;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.about-content .left,
+.about-content .right {
+  flex: 1;
+}
+
+.about-content .img-bat {
+  width: 100%;
+  border: 2px solid #8B0000;
+  border-radius: 10px;
+}
+
+.right h3 {
+  color: #FFFFFF;
+}
+
+.right p {
+  font-size: 1em;
+  color: #D3D3D3;
+  line-height: 1.6em;
+}
+
+.contact-content {
+  background-color: #1a1a1a;
+  border: 1px solid #8B0000;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-info strong {
+  color: #FFFFFF;
+}
+
+.social-icons img {
+  width: 40px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* Destacar títulos principais */
+h2, h3 {
+  color: #B22222; /* vermelho sangue mais vivo */
+  text-shadow: 1px 1px 3px #5a0000; /* sombra escura para realçar */
+}
+
+/* Links e botões */
+a, .btn, .social-icons a img {
+  color: #B22222;
+  border-color: #B22222;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+a:hover, .btn:hover, .social-icons a:hover img {
+  color: #FF0000; /* vermelho vivo no hover */
+  border-color: #FF0000;
+  filter: brightness(1.3);
+  transform: scale(1.1);
+}
+
+/* Bordas com destaque vermelho */
+.img-bat {
+  border: 3px solid #B22222;
+  box-shadow: 0 0 10px #B22222;
+}
+
+/* Botões (caso crie algum depois) */
+.btn {
+  background-color: transparent;
+  border: 2px solid #B22222;
+  color: #B22222;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #B22222;
+  color: #fff;
+  box-shadow: 0 0 15px #B22222;
+}
+
+/* Header texto principal */
+.header-block .text h2 {
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 5px #500000;
+  color: #B22222;
+}
+
+/* Pequenos detalhes em vermelho para links e textos */
+.title-wrpper-about p,
+.title-wrapper-contact p {
+  color: #FF2400; /* vermelho mais vibrante */
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px #5a0000;
+}
