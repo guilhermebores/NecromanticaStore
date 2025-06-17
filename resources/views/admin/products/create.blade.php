@@ -5,13 +5,13 @@
     <h1 class="h4 fw-bold mb-4">Adicionar Produto</h1>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="mb-4">
@@ -26,6 +26,12 @@
             <label for="price" class="form-label">Preço:</label>
             <input type="number" name="price" id="price" class="form-control bg-secondary text-white" value="{{ old('price') }}" step="0.01" required>
         </div>
+
+        <div class="mb-3">
+            <label for="stock" class="form-label">Quantidade em Estoque:</label>
+            <input type="number" name="stock" class="form-control" value="{{ old('stock', 0) }}">
+        </div>
+
 
         <div class="mb-3">
             <label for="description" class="form-label">Descrição:</label>

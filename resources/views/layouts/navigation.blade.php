@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand bg-black px-4 py-3 border-bottom border-secondary">
     <div class="container-fluid d-flex justify-content-between align-items-center">
         <a href="{{ route('home') }}" class="navbar-brand text-danger fs-4 fw-bold font-cinzel mb-0 text-decoration-none">
-            Necromântica<strong class="text-dark">Store</strong>
+            Necromantica<strong class="text-dark">Store</strong>
         </a>
 
         <div class="d-flex align-items-center">

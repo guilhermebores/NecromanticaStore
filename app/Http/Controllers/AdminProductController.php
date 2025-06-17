@@ -27,6 +27,7 @@ class AdminProductController extends Controller
             'price' => 'required|numeric',
             'description' => 'required|string',
             'image' => 'required|image|max:2048',
+            'stock' => 'required|integer|min:0',
         ]);
 
         $imagePath = $request->file('image')->store('images', 'public');
@@ -36,6 +37,7 @@ class AdminProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'image' => $imagePath,
+            'stock' => $request->stock,
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Produto criado com sucesso!');
@@ -53,9 +55,10 @@ class AdminProductController extends Controller
             'price' => 'required|numeric',
             'description' => 'required|string',
             'image' => 'nullable|image|max:2048',
+            'stock' => 'required|integer|min:0',
         ]);
 
-        $data = $request->only(['name', 'price', 'description']);
+        $data = $request->only(['name', 'price', 'description', 'stock']);
 
         if ($request->hasFile('image')) {
             if ($product->image && Storage::disk('public')->exists($product->image)) {

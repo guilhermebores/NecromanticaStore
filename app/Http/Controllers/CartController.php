@@ -28,7 +28,6 @@ class CartController extends Controller
             ->where('user_id', Auth::id())
             ->get();
 
-        // Soma o total (preço * quantidade)
         $total = $cartItems->reduce(function ($carry, $item) {
             return $carry + ($item->product->price * $item->quantity);
         }, 0);

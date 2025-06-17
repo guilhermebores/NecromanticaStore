@@ -43,7 +43,7 @@ class PaymentController extends Controller
     $cartItems = Cart::with('product')
         ->where('user_id', Auth::id())
         ->get();
-        dd($cartItems);
+
 
     $total = $cartItems->reduce(function ($carry, $item) {
         return $carry + ($item->product->price * $item->quantity);
@@ -80,6 +80,14 @@ class PaymentController extends Controller
             if (!$item->product) {
                 return back()->with('error_message', 'Produto no carrinho não encontrado. Por favor, remova itens inválidos.');
             }
+
+            if ($item->product->stock < $item->quantity) {
+                return back()->with('error_message', 'Estoque insuficiente para o produto: ' . $item->product->name);
+            }
+
+            $item->product->stock -= $item->quantity;
+            $item->product->save();
+
             Purchase::create([
                 'user_id' => Auth::id(),
                 'product_id' => $item->product->id,

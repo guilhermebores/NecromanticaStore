@@ -13,6 +13,7 @@
                     <th>Imagem</th>
                     <th>Nome</th>
                     <th>Preço</th>
+                    <th>Estoque</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -28,12 +29,13 @@
                     </td>
                     <td>{{ $product->name }}</td>
                     <td>R$ {{ number_format($product->price, 2, ',', '.') }}</td>
+                    <td>{{ $product->stock }}</td>
                     <td>
                         <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-primary btn-sm">Editar</a>
                         <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</button>
+                            <button type="submit" class="btn btn-danger btn-sm" style="margin-left: 8px;" onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</button>
                         </form>
                     </td>
                 </tr>

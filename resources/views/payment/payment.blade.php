@@ -38,41 +38,45 @@
 
         <h1>Finalizar Pagamento</h1>
 
-        <form action="{{ route('payment') }}" method="POST">
+        <form action="{{ route('payment') }}" method="POST" class="payment-form">
             @csrf
 
-            <label for="name">Nome no Cartão</label>
-            <input type="text" id="name" name="name" required>
+            <div class="form-section">
+                <h3>Informações do Cartão</h3>
+                <label for="name">Nome no Cartão</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="card-number">Número do Cartão</label>
-            <input type="text" id="card-number" name="card_number" required>
+                <label for="card-number">Número do Cartão</label>
+                <input type="text" id="card-number" name="card_number" required>
 
-            <label for="card-expiry">Data de Expiração (MM/AA)</label>
-            <input type="text" id="card-expiry" name="card_expiry" required>
+                <label for="card-expiry">Data de Expiração (MM/AA)</label>
+                <input type="text" id="card-expiry" name="card_expiry" required>
 
-            <label for="card-cvc">Código de Segurança (CVC)</label>
-            <input type="text" id="card-cvc" name="card_cvc" required>
+                <label for="card-cvc">Código de Segurança (CVC)</label>
+                <input type="text" id="card-cvc" name="card_cvc" required>
+            </div>
 
-            <h3>Endereço de Cobrança</h3>
-            <label for="billing_address">Endereço</label>
-            <input type="text" id="billing_address" name="billing_address" required>
+            <div class="form-section">
+                <h3>Endereço de Entrega</h3>
+                <label for="billing_address">Endereço</label>
+                <input type="text" id="billing_address" name="billing_address" required>
 
-            <label for="billing_city">Cidade</label>
-            <input type="text" id="billing_city" name="billing_city" required>
+                <label for="billing_city">Cidade</label>
+                <input type="text" id="billing_city" name="billing_city" required>
 
-            <label for="billing_state">Estado</label>
-            <input type="text" id="billing_state" name="billing_state" required>
+                <label for="billing_state">Estado</label>
+                <input type="text" id="billing_state" name="billing_state" required>
 
-            <label for="billing_zip">CEP</label>
-            <input type="text" id="billing_zip" name="billing_zip" required>
-
-
-            </select>
+                <label for="billing_zip">CEP</label>
+                <input type="text" id="billing_zip" name="billing_zip" required>
+            </div>
 
             <input type="hidden" name="total" value="{{ number_format($total, 2, '.', '') }}">
 
             <button type="submit">Pagar Agora</button>
         </form>
+
+
     </div>
 
     @if(session('successo'))

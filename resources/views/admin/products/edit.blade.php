@@ -5,13 +5,13 @@
     <h1 class="h4 fw-bold mb-4">Editar Produto</h1>
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="mb-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="mb-4">
@@ -29,6 +29,13 @@
         </div>
 
         <div class="mb-3">
+            <label for="stock" class="form-label">Quantidade em Estoque:</label>
+            <input type="number" name="stock" class="form-control" value="{{ old('stock', $product->stock) }}">
+
+        </div>
+
+
+        <div class="mb-3">
             <label for="description" class="form-label">Descrição:</label>
             <textarea name="description" id="description" rows="4" class="form-control bg-secondary text-white">{{ old('description', $product->description) }}</textarea>
         </div>
@@ -36,9 +43,9 @@
         <div class="mb-3">
             <label class="form-label">Imagem Atual:</label><br>
             @if ($product->image)
-                <img src="{{ asset('storage/' . $product->image) }}" alt="Imagem do Produto" class="img-thumbnail mb-2" style="width: 150px; height: 150px; object-fit: cover;">
+            <img src="{{ asset('storage/' . $product->image) }}" alt="Imagem do Produto" class="img-thumbnail mb-2" style="width: 150px; height: 150px; object-fit: cover;">
             @else
-                <p class="text-muted">Nenhuma imagem disponível.</p>
+            <p class="text-muted">Nenhuma imagem disponível.</p>
             @endif
         </div>
 

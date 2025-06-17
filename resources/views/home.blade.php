@@ -7,7 +7,7 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <h2 class="display-5 text-danger">Melhor estilo pra você</h2>
                     <p>
-                        Na NecromanciaStore, a moda transcende o comum; é onde o mistério
+                        Na NecromancaStore, a moda transcende o comum; é onde o mistério
                         encontra a elegância e a rebeldia se veste de sofisticação,
                         criando um estilo único e autêntico para quem ousa ser diferente.
                     </p>
@@ -38,7 +38,7 @@
                 <div class="col-md-6">
                     <h3 class="text-danger">Reúna Beleza e Moda</h3>
                     <p>
-                        A NecromanciaStore é o destino ideal para quem busca roupas
+                        A NecromancaStore é o destino ideal para quem busca roupas
                         góticas de qualidade e estilo único. Com uma seleção que mistura o
                         clássico, o vitoriano e o cyberpunk, a loja oferece peças como
                         vestidos de veludo, jaquetas de couro com tachas, calças de
